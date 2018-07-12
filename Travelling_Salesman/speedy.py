@@ -4,6 +4,13 @@ from tools import *
 # input: all locations
 # output: locations (sorted)
 #*************************************
+#number 2 is the first smallest
+#number 15 is next smallest
+#number 24
+#number 49
+#number 1
+#number 4
+#number 31
 def speedyTrip(places):
     # places is a list of locations
     # the first place is places[0]
@@ -12,14 +19,23 @@ def speedyTrip(places):
     # x_location
     # places[0].y
     # y_location
-    # get_distance(places[0], places[1]) returns 
     # the distance between places[0] and places[1]
-    
+    mindistance = 1000000000
+    minplace = places[0]
+    currplace = places[0]
+    for x :
+        for i in range(1,51):
+            if(get_distance(currplace, places[i]) < mindistance):
+            mindistance = get_distance(currplace, places[i])
+            minplace = places[i]    
+    print(minplace.name + " " + str(mindistance))
+
+
     #these are random code statement that you may or may not want to use.
-    print(get_distance(places[0], places[1]))
+    print(get_distance(places[0], places[51]))
     places.append(places[0])
-    cities=[]
-    unvisited_cities=list(range(0,50))
+    cities=[52]
+    unvisited_cities=list(range(0,51))
     visited_cities=[0]
     print (visited_cities)
     print (unvisited_cities)
@@ -32,12 +48,13 @@ def speedyTrip(places):
     unvisited_cities.remove(next_city)
     print (visited_cities)
     # you can iterate through the places as:
-    #N = length(places)
+    
+    N = len(places)
     #for i in range(0,N):
-    #   x = 0
-    #   ye = get_distance(places[i], places[x])
-    #   x = x + 1
-    #   print ye
+       # x = 0
+        #ye = get_distance(places[i], places[52])
+       # x = x + 1
+   # print (ye)
 
     # ...
     # 

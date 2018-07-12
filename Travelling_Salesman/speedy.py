@@ -12,39 +12,31 @@ def speedyTrip(places):
     # x_location
     # places[0].y
     # y_location
-    # get_distance(places[0], places[1]) returns 
+    # get_distance(places[0], places[1]) returns
     # the distance between places[0] and places[1]
-    
-    #these are random code statement that you may or may not want to use.
-    print(get_distance(places[0], places[1]))
-    places.append(places[0])
-    cities=[]
-    unvisited_cities=list(range(0,50))
-    visited_cities=[0]
-    print (visited_cities)
-    print (unvisited_cities)
-    unvisited_cities.remove(0)
-    next_city= unvisited_cities[0]
-    #while unvisited_cities !=[]:
-    #   cities.append(next_city)
-    
-    visited_cities.append(next_city)
-    unvisited_cities.remove(next_city)
-    print (visited_cities)
-    # you can iterate through the places as:
-    #N = length(places)
-    #for i in range(0,N):
-    #   x = 0
-    #   ye = get_distance(places[i], places[x])
-    #   x = x + 1
-    #   print ye
+    current = 0
+    cities = [places[0]]
+    unvisited_cities = list(range(1, len(places)))
 
-    # ...
-    # 
-    # or 
-    # foreach place in places:
-    # ...
+    while len(unvisited_cities) > 0:
+        closest = unvisited_cities[0]
+        shortest = get_distance(places[current], places[closest])
+        for city in unvisited_cities:
+            distance = get_distance(places[current], places[city])
+            if distance < shortest:
+                shortest = distance
+                closest = city
+        current = closest
+        cities.append(places[current])
+        unvisited_cities.remove(current)
+
+    cities.append(places[0])
+
+    return cities
 
 
-    # return the places to be evaluated
-    return places
+
+
+
+
+
